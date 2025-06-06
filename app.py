@@ -91,7 +91,8 @@ if not os.path.exists(DATA_FILE):
 
 @app.route('/')
 def home():
-    return render_template('index.html')  # Renders the HTML
+    return "Welcome to the CGPA Generator API"
+
 
 @app.route('/submit_grades', methods=['POST'])
 def submit_grades():
