@@ -1,5 +1,5 @@
 from openpyxl.styles import numbers
-from flask import Flask, request, jsonify
+from flask import Flask, render_template, request, jsonify
 import json
 import os
 import pandas as pd
@@ -88,6 +88,10 @@ EXCEL_FILE = 'students_grades.xlsx'
 if not os.path.exists(DATA_FILE):
     with open(DATA_FILE, 'w') as f:
         json.dump([], f)
+
+@app.route('/')
+def home():
+    return render_template('index.html')  # Renders the HTML
 
 @app.route('/submit_grades', methods=['POST'])
 def submit_grades():
